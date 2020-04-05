@@ -4,7 +4,15 @@ void main() => runApp(MaterialApp(
   home: PeopleCart()
 ));
 
-class PeopleCart extends StatelessWidget {
+class PeopleCart extends StatefulWidget {
+  @override
+  _PeopleCartState createState() => _PeopleCartState();
+}
+
+class _PeopleCartState extends State<PeopleCart> {
+
+  int peoplesvalue = 1;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -14,6 +22,15 @@ class PeopleCart extends StatelessWidget {
         centerTitle: true,
         backgroundColor: Colors.grey[850],
         elevation: 0.0,
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          setState(() {
+            peoplesvalue +=1;
+          });
+        },
+        child: Icon(Icons.add),
+        backgroundColor: Colors.grey[850],
       ),
       body: Padding(
         padding: EdgeInsets.fromLTRB(30.0, 40.0, 30.0, 0.0),
@@ -55,7 +72,7 @@ class PeopleCart extends StatelessWidget {
           ),
           
           Text(
-            'unemployed',
+            '$peoplesvalue',
             style: TextStyle(
             color: Colors.amber[200],
             letterSpacing: 2.0,
@@ -85,3 +102,4 @@ class PeopleCart extends StatelessWidget {
     );
   }
 }
+
