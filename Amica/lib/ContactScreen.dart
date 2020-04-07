@@ -10,6 +10,22 @@ class _ContactScreenState extends State<ContactScreen> {
 
   @override
   Widget build(BuildContext context) {
+
+
+      final name = TextFormField(
+      keyboardType: TextInputType.text,
+      autofocus: false,
+      initialValue: 'Techie Quickie',
+      decoration: InputDecoration(
+        hintText: 'Name',
+        contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
+        border: OutlineInputBorder(borderRadius: BorderRadius.circular(10.0)),
+      ),
+    );
+    
+    //String body = '';
+    //final key = GlobalKey<FormState>();
+
     return Scaffold(
       backgroundColor: Colors.grey[500],
       appBar: AppBar(
@@ -28,7 +44,7 @@ class _ContactScreenState extends State<ContactScreen> {
         backgroundColor: Colors.grey[800],
       ),
       body: Padding(
-        padding: const EdgeInsets.fromLTRB(30.0, 40.0, 30.0, 0),
+        padding: const EdgeInsets.fromLTRB(40.0, 40.0, 40.0, 0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
@@ -42,78 +58,95 @@ class _ContactScreenState extends State<ContactScreen> {
               color: Colors.grey[800],
               height: 60.0,
             ),
-
-            Text(
-              'Name',
-              style: TextStyle(
-                color: Colors.grey[850],
-                letterSpacing: 2.0,
-              ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                new Text(
+                  'Name',
+                  style: TextStyle(
+                    color: Colors.grey[850],
+                    letterSpacing: 2.0,
+                  ),
+                ),
+                SizedBox(height: 30.0),
+                new Text(
+                  'Hometown',
+                  style: TextStyle(
+                    color: Colors.grey[850],
+                    letterSpacing: 2.0,
+                  ),
+                ),
+              ],
             ),
-            SizedBox(height: 10.0),
-            Text(
-              'Thordur',
-              style: TextStyle(
-                color: Colors.white,
-                fontWeight: FontWeight.bold,
-                fontSize: 20.0,
-                letterSpacing: 2.0,
-              ),
-            ),
-            SizedBox(height: 30.0),
-          Text(
-              'Hometown',
-              style: TextStyle(
-                color: Colors.grey[850],
-                letterSpacing: 2.0,
-              ),
-            ),
-            SizedBox(height: 10.0),
-            Text(
-              'Beijing, China',
-              style: TextStyle(
-                color: Colors.white,
-                fontWeight: FontWeight.bold,
-                fontSize: 20.0,
-                letterSpacing: 2.0,
-              ),
-            ),
-
-            SizedBox(height: 30.0),
-            Text(
-              'Days in row',
-              style: TextStyle(
-                color: Colors.grey[850],
-                letterSpacing: 2.0,
-              ),
-            ),
-            SizedBox(height: 10.0),
-            Text(
-              '$Daysinarow',
-              style: TextStyle(
-                color: Colors.white,
-                fontWeight: FontWeight.bold,
-                fontSize: 20.0,
-                letterSpacing: 2.0,
-              ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  'hekgu',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 20.0,
+                    letterSpacing: 2.0,
+                  ),
+                ),
+                SizedBox(height: 10.0),
+                Text(
+                  'Beijing, China',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 20.0,
+                    letterSpacing: 2.0,
+                  ),
+                ),
+              ],
             ),
             SizedBox(height: 30.0),
-            Text(
-              'Phone number',
-              style: TextStyle(
-                color: Colors.grey[850],
-                letterSpacing: 2.0,
-              ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                new Text(
+                  'Days in row',
+                  style: TextStyle(
+                    color: Colors.grey[850],
+                    letterSpacing: 2.0,
+                  ),
+                ),
+                SizedBox(height: 10.0),
+                SizedBox(height: 30.0),
+                new Text(
+                  'Phone number',
+                  style: TextStyle(
+                    color: Colors.grey[850],
+                    letterSpacing: 2.0,
+                  ),
+                ),
+              ],
             ),
             SizedBox(height: 10.0),
-            Text(
-              '864 5418',
-              style: TextStyle(
-                color: Colors.white,
-                fontWeight: FontWeight.bold,
-                fontSize: 20.0,
-                letterSpacing: 2.0,
-              ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  '$Daysinarow',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 20.0,
+                    letterSpacing: 2.0,
+                  ),
+                ),
+                Text(
+                  '864 5418',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 20.0,
+                    letterSpacing: 2.0,
+                  ),
+                ),
+              ],
             ),
             SizedBox(height: 30.0),
             Row(
@@ -131,17 +164,29 @@ class _ContactScreenState extends State<ContactScreen> {
                     letterSpacing: 1.0,
                   ),
                 ),
-                // TextFormField(
-                //   keyboardType: TextInputType.multiline,
-                //   maxLines: 99,
-                //   style: TextStyle(fontSize: 18.0),
-                //   decoration: InputDecoration(
-                //   contentPadding: EdgeInsets.fromLTRB(8.0, 12.0, 8.0, 12.0),
-                //   hintText: "Write your Note",
-                //   border: OutlineInputBorder(borderRadius: BorderRadius.circular(5))),
-                // ),
               ],
             ),
+
+            name,
+            
+            // ListTile(
+            //   title: TextFormField(
+            //     onSaved: (value) => body = value,
+            //     decoration: InputDecoration(
+            //       labelText: 'BODY',
+            //       labelStyle: TextStyle(fontWeight: FontWeight.bold),
+            //     ),
+            //     maxLines: 9,
+            //   ),
+            // )
+            //     Row(
+            //       mainAxisSize: MainAxisSize.min,
+            //  // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            //   children:
+            //   [
+            //     name,
+            //   ],
+            // ),
           ],
         ),
       ),

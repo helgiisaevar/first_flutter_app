@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import './ContactScreen.dart';
+//import './Signup.dart';
 
 
 void main() {
@@ -16,7 +17,7 @@ class _AmicaAppState extends State<AmicaApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Amica App foobar',
-      home: ContactScreen(),
+      home: new ContactScreen(),
   
     );
   }
