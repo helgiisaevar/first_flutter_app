@@ -1,4 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:Amica/Signup.dart';
+
+
+// import 'package:Amica/DataController.dart';
+// import 'package:flutter/material.dart';
+// import 'package:Amica/Contact.dart';
+// import 'package:intl/intl.dart';
+
 
 class ContactScreen extends StatefulWidget {
   @override
@@ -6,12 +14,9 @@ class ContactScreen extends StatefulWidget {
 }
 
 class _ContactScreenState extends State<ContactScreen> {
-  int Daysinarow = 0;
 
   @override
   Widget build(BuildContext context) {
-
-
       final name = TextFormField(
       keyboardType: TextInputType.text,
       autofocus: false,
@@ -22,9 +27,6 @@ class _ContactScreenState extends State<ContactScreen> {
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(10.0)),
       ),
     );
-    
-    //String body = '';
-    //final key = GlobalKey<FormState>();
 
     return Scaffold(
       backgroundColor: Colors.grey[500],
@@ -34,15 +36,21 @@ class _ContactScreenState extends State<ContactScreen> {
         backgroundColor: Colors.grey[850],
         elevation: 0.0,
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          setState(() {
-            Daysinarow += 1;
-          });
-        },
-        child: Icon(Icons.add),
-        backgroundColor: Colors.grey[800],
-      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
+        floatingActionButton: FloatingActionButton.extended(
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => Signup()),
+            );
+            print("Added a new contact!");
+            Signup();
+          },
+          label: Text('add'),
+          icon: Icon(Icons.add),
+          backgroundColor: Colors.blueAccent,
+          ),
+
       body: Padding(
         padding: const EdgeInsets.fromLTRB(40.0, 40.0, 40.0, 0),
         child: Column(
@@ -129,7 +137,7 @@ class _ContactScreenState extends State<ContactScreen> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  '$Daysinarow',
+                  'blaa',
                   style: TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.bold,
@@ -166,29 +174,10 @@ class _ContactScreenState extends State<ContactScreen> {
                 ),
               ],
             ),
-
             name,
-            
-            // ListTile(
-            //   title: TextFormField(
-            //     onSaved: (value) => body = value,
-            //     decoration: InputDecoration(
-            //       labelText: 'BODY',
-            //       labelStyle: TextStyle(fontWeight: FontWeight.bold),
-            //     ),
-            //     maxLines: 9,
-            //   ),
-            // )
-            //     Row(
-            //       mainAxisSize: MainAxisSize.min,
-            //  // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            //   children:
-            //   [
-            //     name,
-            //   ],
-            // ),
           ],
         ),
+        
       ),
     );
   }

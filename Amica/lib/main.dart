@@ -1,3 +1,4 @@
+import 'package:Amica/Signup.dart';
 import 'package:flutter/material.dart';
 import './ContactScreen.dart';
 //import './Signup.dart';
@@ -18,7 +19,7 @@ class _AmicaAppState extends State<AmicaApp> {
     return MaterialApp(
       title: 'Amica App foobar',
       home: new ContactScreen(),
-  
+
     );
   }
 }

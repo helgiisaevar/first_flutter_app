@@ -16,19 +16,23 @@ class Signup extends StatefulWidget {
 }
 
 class SignupPage extends State<Signup> {
-  List<String> _ccodes = <String>['', '+65', '+91', '+60', '+61'];
-  String _ccode = '';
+  // List<String> _ccodes = <String>['', '+65', '+91', '+60', '+61'];
+  // String _ccode = '';
 
   @override
   Widget build(BuildContext context) {
     final name = TextFormField(
       keyboardType: TextInputType.text,
       autofocus: false,
-      initialValue: 'Techie Quickie',
+      initialValue: 'Morgan Jordan',
+      style: TextStyle(
+        color: Colors.black
+      ),
       decoration: InputDecoration(
-        hintText: 'Name',
+        labelText: 'Name',
+        focusColor: Colors.grey[800],
         contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
-        border: OutlineInputBorder(borderRadius: BorderRadius.circular(32.0)),
+        border: OutlineInputBorder(borderRadius: BorderRadius.circular(10.0)),
       ),
     );
 
@@ -36,36 +40,52 @@ class SignupPage extends State<Signup> {
       keyboardType: TextInputType.emailAddress,
       autofocus: false,
       initialValue: 'tq@gmail.com',
+      
       decoration: InputDecoration(
-        hintText: 'Email',
+        labelText: 'Email',
+        focusColor: Colors.grey[600],
         contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
-        border: OutlineInputBorder(borderRadius: BorderRadius.circular(32.0)),
+        border: OutlineInputBorder(borderRadius: BorderRadius.circular(10.0)),
       ),
     );
 
     final password = TextFormField(
-      keyboardType: TextInputType.text,
-      obscureText: true,
+      keyboardType: TextInputType.multiline,
       autofocus: false,
-      initialValue: 'password',
+      maxLines: null,
+      style: TextStyle(
+        color: Colors.black
+      ),
+      initialValue: 'His daugther is called Brendan',
       decoration: InputDecoration(
-        hintText: 'Password',
-        contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
-        border: OutlineInputBorder(borderRadius: BorderRadius.circular(32.0)),
+        hoverColor: Colors.grey[200],
+        labelText: 'About Person',
+        contentPadding: EdgeInsets.fromLTRB(20.0, 0.0, 10.0, 60.0),
+        border: OutlineInputBorder(borderRadius: BorderRadius.circular(10.0)),
       ),
     );
 
     final passwordConfirmation = TextFormField(
       keyboardType: TextInputType.text,
-      obscureText: true,
       autofocus: false,
-      initialValue: 'password',
+      initialValue: 'What connects you?',
       decoration: InputDecoration(
-        hintText: 'Password',
+        labelText: 'Enter tags here',
         contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
-        border: OutlineInputBorder(borderRadius: BorderRadius.circular(32.0)),
+        border: OutlineInputBorder(borderRadius: BorderRadius.circular(10.0)),
       ),
     );
+
+    final phonenumber = TextFormField(
+          keyboardType: TextInputType.phone,
+          autofocus: false,
+          initialValue: '8645418',
+          decoration: InputDecoration(
+            labelText: 'Phone number',
+            contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
+            border: OutlineInputBorder(borderRadius: BorderRadius.circular(10.0)),
+          ),
+        );
 
     final loginButton = Padding(
         padding: EdgeInsets.symmetric(vertical: 16.0),
@@ -87,31 +107,22 @@ class SignupPage extends State<Signup> {
           ),
         ));
 
-    final countryCode = DropdownButton<String>(
-        value: _ccode,
-        isDense: true,
-        items: _ccodes.map((String value) {
-          return new DropdownMenuItem<String>(
-            value: value,
-            child: new Text(value),
-          );
-        }).toList(),
-        onChanged: (String newValue) {
-          setState(() {
-            _ccode = newValue;
-          });
-        });
+    // final countryCode = DropdownButton<String>(
+    //     value: _ccode,
+    //     isDense: true,
+    //     items: _ccodes.map((String value) {
+    //       return new DropdownMenuItem<String>(
+    //         value: value,
+    //         child: new Text(value),
+    //       );
+    //     }).toList(),
+    //     onChanged: (String newValue) {
+    //       setState(() {
+    //         _ccode = newValue;
+    //       });
+    //     });
 
-    final phonenumber = TextFormField(
-      keyboardType: TextInputType.phone,
-      autofocus: false,
-      initialValue: '91166666',
-      decoration: InputDecoration(
-        hintText: 'Phone Number',
-        contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
-        border: OutlineInputBorder(borderRadius: BorderRadius.circular(32.0)),
-      ),
-    );
+    
 
     return Scaffold(
         backgroundColor: Colors.white,
@@ -128,13 +139,14 @@ class SignupPage extends State<Signup> {
             SizedBox(height: 18.0),
             passwordConfirmation,
             SizedBox(height: 18.0),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                countryCode,
-                new Flexible(child: phonenumber),
-              ],
-            ),
+            phonenumber,
+            // Row(
+            //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            //   children: [
+            //     //countryCode,
+            //     new Flexible(child: phonenumber),
+            //   ],
+            // ),
             SizedBox(height: 18.0),
             loginButton,
             SizedBox(height: 38.0),
