@@ -50,6 +50,7 @@ class _ContactScreenState extends State<ContactScreen> {
           icon: Icon(Icons.add),
           backgroundColor: Colors.blueAccent,
           ),
+      
 
       body: Padding(
         padding: const EdgeInsets.fromLTRB(40.0, 40.0, 40.0, 0),
