@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+//import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 
 void main() {
   runApp(new MaterialApp(
@@ -9,7 +10,7 @@ void main() {
 
 class Signup extends StatefulWidget {
   Signup({Key key, this.title}) : super(key: key);
-    final String title;
+  final String title;
 
   @override
   SignupPage createState() => new SignupPage();
@@ -25,9 +26,7 @@ class SignupPage extends State<Signup> {
       keyboardType: TextInputType.text,
       autofocus: false,
       initialValue: 'Morgan Jordan',
-      style: TextStyle(
-        color: Colors.black
-      ),
+      style: TextStyle(color: Colors.black),
       decoration: InputDecoration(
         labelText: 'Name',
         focusColor: Colors.grey[800],
@@ -40,7 +39,6 @@ class SignupPage extends State<Signup> {
       keyboardType: TextInputType.emailAddress,
       autofocus: false,
       initialValue: 'tq@gmail.com',
-      
       decoration: InputDecoration(
         labelText: 'Email',
         focusColor: Colors.grey[600],
@@ -53,9 +51,7 @@ class SignupPage extends State<Signup> {
       keyboardType: TextInputType.multiline,
       autofocus: false,
       maxLines: null,
-      style: TextStyle(
-        color: Colors.black
-      ),
+      style: TextStyle(color: Colors.black),
       initialValue: 'His daugther is called Brendan',
       decoration: InputDecoration(
         hoverColor: Colors.grey[200],
@@ -77,15 +73,15 @@ class SignupPage extends State<Signup> {
     );
 
     final phonenumber = TextFormField(
-          keyboardType: TextInputType.phone,
-          autofocus: false,
-          initialValue: '8645418',
-          decoration: InputDecoration(
-            labelText: 'Phone number',
-            contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
-            border: OutlineInputBorder(borderRadius: BorderRadius.circular(10.0)),
-          ),
-        );
+      keyboardType: TextInputType.phone,
+      autofocus: false,
+      initialValue: '8645418',
+      decoration: InputDecoration(
+        labelText: 'Phone number',
+        contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
+        border: OutlineInputBorder(borderRadius: BorderRadius.circular(10.0)),
+      ),
+    );
 
     final loginButton = Padding(
         padding: EdgeInsets.symmetric(vertical: 16.0),
@@ -96,16 +92,37 @@ class SignupPage extends State<Signup> {
           child: MaterialButton(
             minWidth: 200.0,
             height: 42.0,
+            
             onPressed: () {
-              print("Signup button clicked");
+              Navigator.push(
+                context,
+                MaterialPageRoute
+              )
+              Cupertino();
             },
             color: Colors.lightBlueAccent,
             child: Text(
-              'Sign Up',
+              'Add user',
               style: TextStyle(color: Colors.white, fontSize: 20.0),
             ),
           ),
         ));
+
+    // FlatButton(
+    //     onPressed: () {
+    //       DatePicker.showDatePicker(context,
+    //           showTitleActions: true,
+    //           minTime: DateTime(2018, 3, 5),
+    //           maxTime: DateTime(2019, 6, 7), onChanged: (date) {
+    //         print('change $date');
+    //       }, onConfirm: (date) {
+    //         print('confirm $date');
+    //       }, currentTime: DateTime.now(), locale: LocaleType.zh);
+    //     },
+    //     child: Text(
+    //       'show date time picker (Chinese)',
+    //       style: TextStyle(color: Colors.blue),
+    //     ));
 
     // final countryCode = DropdownButton<String>(
     //     value: _ccode,
@@ -121,8 +138,6 @@ class SignupPage extends State<Signup> {
     //         _ccode = newValue;
     //       });
     //     });
-
-    
 
     return Scaffold(
         backgroundColor: Colors.white,
